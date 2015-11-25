@@ -42,11 +42,8 @@ var tableSort = function(col) {
     // clear prior arrow
     if (typeof this.lastColumn != 'undefined') {
         var prior = this.tHead.rows[0].cells[this.lastColumn].innerHTML;
-        //var span = /<span>.*<\/span>/;
         var span = /<span.*span>/;
-        this.tHead.rows[0].cells[this.lastColumn]= prior.replace(span, "");
-        var repl = prior.replace(span, "");
-        this.tHead.rows[0].cells[this.lastColumn].innerHTML = repl;
+        this.tHead.rows[0].cells[this.lastColumn].innerHTML = prior.replace(span, "");
     }
 
     if (this.lastColumn == col) {
