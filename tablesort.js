@@ -77,8 +77,7 @@ var tableSort = function(col) {
     }
 
     // create proxy array to sort table
-    var rows = this.rows.length - headCount;
-    var proxy = new Array(rows);
+    var proxy = new Array(this.rows.length - headCount);
 
     // adjust for offset by headCount rows
     for (var i = 0; i < proxy.length; i++) {
@@ -94,6 +93,8 @@ var tableSort = function(col) {
         var n = this.rows[proxy[i]].cloneNode(true);
         this.tBodies[1].appendChild(n);
     }
+
+    // delete original unsorted table
     this.tBodies[0].remove();
 
     // save settings to know if to invert sort order
