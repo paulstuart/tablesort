@@ -16,7 +16,6 @@
 var sortable = function(id) {
     var table = document.getElementById(id);
     var fn = tableSort.bind(table);
-    var table = document.getElementById(id);
     var head = table.tHead.rows[0]
     for (var i = 0; i < head.cells.length; i++) {
         head.cells[i].addEventListener("click", function() {
@@ -42,8 +41,7 @@ var tableSort = function(col) {
     // clear prior arrow
     if (typeof this.lastColumn != 'undefined') {
         var prior = this.tHead.rows[0].cells[this.lastColumn].innerHTML;
-        var span = /<span.*span>/;
-        this.tHead.rows[0].cells[this.lastColumn].innerHTML = prior.replace(span, "");
+        this.tHead.rows[0].cells[this.lastColumn].innerHTML = prior.replace(/<span.*span>/, "");
     }
 
     if (this.lastColumn == col) {
